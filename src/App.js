@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Index from './componets/RatingPage/Index'
+import Result from './componets/Result/Result'
 
-function App() {
+const App = () => {
+  const [num,setNum] = useState('');
+  const [start,setStart]= useState(true)
+    function x(id){
+        setNum(id);
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+    <div className='container'>
+      {start? <Index num={num} x={x} setStart={setStart}/>:<Result num={num}/>}
+      
     </div>
-  );
+    </div>
+  )
 }
 
-export default App;
+export default App
+
+
